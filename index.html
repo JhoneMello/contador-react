@@ -10,7 +10,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div  id="recipiente"></div>
+    <div class="bg-slate-400 min-h-screen flex justify-center items-center flex-col gap-20" id="recipiente"></div>
 
 
     <script
@@ -31,16 +31,16 @@
     <script type="text/babel">
 
         const Contador = ({contador}) => {
-            return <span className='h-screen flex items-center justify-center text-6xl'>{contador}</span>;
+            return <span className='border-3 rounded-full w-50 h-50 font-semibold text-8xl flex justify-center items-center'>{contador}</span>;
         }
 
         const Botao = ({children, aoClicar}) => {
-            return <button onClick={aoClicar}>{children}</button>;
+            return <button className='bg-green-800 hover:bg-yellow-400 w-40 h-12 rounded-2xl text-yellow-400 hover:text-green-800 font-medium' onClick={aoClicar}>{children}</button>;
         }
 
         const Caixa = ({contador, setarContador}) => {
             return (
-                <div className>
+                <div className='space-x-5 text-2xl'>
                    <Botao aoClicar={() => setarContador(contador - 1)}>Decrementar</Botao>
                    <Botao aoClicar={() => setarContador(0)}>Zerar</Botao>
                    <Botao aoClicar={() => setarContador(contador + 1)}>Incrementar</Botao>
