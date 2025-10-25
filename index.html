@@ -3,10 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script 
+      src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"
+      crossorigin>
+    </script>
     <title>Document</title>
 </head>
 <body>
-    <div id="recipiente"></div>
+    <div  id="recipiente"></div>
+
 
     <script
       src="https://unpkg.com/react@18.3.1/umd/react.development.js"
@@ -26,11 +31,21 @@
     <script type="text/babel">
 
         const Contador = ({contador}) => {
-            return <span>{contador}</span>;
+            return <span className='h-screen flex items-center justify-center text-6xl'>{contador}</span>;
         }
 
-        const Botao = ({children}) => {
-            return <button>{children}</button>;
+        const Botao = ({children, aoClicar}) => {
+            return <button onClick={aoClicar}>{children}</button>;
+        }
+
+        const Caixa = ({contador, setarContador}) => {
+            return (
+                <div className>
+                   <Botao aoClicar={() => setarContador(contador - 1)}>Decrementar</Botao>
+                   <Botao aoClicar={() => setarContador(0)}>Zerar</Botao>
+                   <Botao aoClicar={() => setarContador(contador + 1)}>Incrementar</Botao>
+                </div>
+            );
         }
 
         const App = () => {
@@ -39,10 +54,11 @@
 
             return (
                 <>
-                   <Contador contador={0} />
-                   <Botao>Decrementar</Botao>
-                   <Botao>Zerar</Botao>
-                   <Botao>Incrementar</Botao>
+                   <Contador contador={contador} />
+                   <Caixa 
+                     contador={contador}
+                     setarContador={setarContador}
+                   />
                 </>
             );
         }
