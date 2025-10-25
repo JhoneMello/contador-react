@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="recipiente"></div>
+
+    <script
+      src="https://unpkg.com/react@18.3.1/umd/react.development.js"
+      crossorigin>
+    </script>
+    
+    <script
+      src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"
+      crossorigin>
+    </script>
+
+    <script
+      src="https://unpkg.com/@babel/standalone/babel.min.js"
+      crossorigin>
+    </script>
+
+    <script type="text/babel">
+
+        const Contador = ({contador}) => {
+            return <span>{contador}</span>;
+        }
+
+        const Botao = ({children}) => {
+            return <button>{children}</button>;
+        }
+
+        const App = () => {
+            
+            const [contador, setarContador] = React.useState(0);
+
+            return (
+                <>
+                   <Contador contador={0} />
+                   <Botao>Decrementar</Botao>
+                   <Botao>Zerar</Botao>
+                   <Botao>Incrementar</Botao>
+                </>
+            );
+        }
+
+       ReactDOM.createRoot(document.querySelector('#recipiente')).render(<App />);
+
+    </script>
+
+
+</body>
+</html>
+
